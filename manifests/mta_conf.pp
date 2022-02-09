@@ -19,6 +19,9 @@ define dkim_filter::mta_conf (
         "milter_default_action" : value => $dkim_filter::params::mta_action;
       }
     }
+    default: {
+      fail("Unsupported configure_mta: ${mta}")
+    }
   }
 
 }
