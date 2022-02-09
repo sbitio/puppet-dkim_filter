@@ -181,24 +181,28 @@ class dkim_filter (
     dkim_filter::mta_conf { $dkim_filter::params::configure_mta: }
   }
 
+  $_real_socket_tests = $dkim_filter::params::socket_type ? {
+    'local' => $dkim_filter::params::socket_file,
+    default => undef,
+  }
+
+  $_real_net_tests = $dkim_filter::params::socket_type ? {
+    'inet'  => [{
+      'port' => $dkim_filter::params::socket_port,
+      'host' => $dkim_filter::params::socket_bind,
+      'type' => 'TCP',
+      # TO-DO: Add smtp protocol
+    }],
+    #TO-DO: local socket
+    default => undef,
+  }
+
   if defined(monit::service_conf) {
     @monit::service_conf { $service_name:
       bin          => $dkim_filter::params::bin,
       pid_file     => $dkim_filter::params::pid_file,
-      socket_tests => $dkim_filter::params::socket_type ? {
-        'local' => $dkim_filter::params::socket_file,
-        default => undef,
-      },
-      net_tests    => $dkim_filter::params::socket_type ? {
-        'inet'  => [{
-          'port' => $dkim_filter::params::socket_port,
-          'host' => $dkim_filter::params::socket_bind,
-          'type' => 'TCP',
-          # TO-DO: Add smtp protocol
-        }],
-        #TO-DO: local socket
-        default => undef,
-      },
+      socket_tests => $_real_socket_tests,
+      net_tests    => $_real_net_tests,
       require      => Service[$service_name],
     }
   }
