@@ -10,7 +10,7 @@ define dkim_filter::mta_conf (
       }
       # params definition has reverse host port order
       $socket_postfix_def = $dkim_filter::params::socket_type ? {
-        'local' => "${dkim_filter::params::socket_type}:${socket_file}",
+        'local' => "${dkim_filter::params::socket_type}:${dkim_filter::params::socket_file}",
         'inet'  => "${dkim_filter::params::socket_type}:${ip}:${dkim_filter::params::socket_port}",
       }
       postfix::config {
