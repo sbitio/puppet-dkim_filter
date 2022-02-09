@@ -36,8 +36,8 @@ class dkim_filter (
   }
 
   service { $service_name:
-    name       => $service_name,
     ensure     => running,
+    name       => $service_name,
     hasstatus  => false,
     hasrestart => true,
     enable     => true,
