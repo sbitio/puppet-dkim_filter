@@ -18,9 +18,9 @@ define dkim_filter::key (
   # TO-DO: remove if last absent
     file { $domain_dir:
       ensure => directory,
-      owner   => 'root',
-      group   => 'root',
-      mode    => '0600',
+      owner  => 'root',
+      group  => 'root',
+      mode   => '0600',
     }
   }
 
