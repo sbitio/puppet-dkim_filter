@@ -1,8 +1,8 @@
 # Loosely based on https://github.com/huit/puppet-dkim_filter_access/blob/master/manifests/entry.pp
 define dkim_filter::conf_entry (
-  $ensure = present,
   $key,
   $value,
+  $ensure = present,
 ) {
 
   require dkim_filter::augeas
