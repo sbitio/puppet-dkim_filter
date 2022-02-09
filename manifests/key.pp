@@ -1,10 +1,10 @@
 # Loosely based on https://github.com/huit/puppet-dkim_filter_access/blob/master/manifests/entry.pp
 define dkim_filter::key (
-  $ensure   = present,
-  $subdoms  = false,
   $selector,
   $domain,
   $key,
+  $ensure   = present,
+  $subdoms  = false,
 ) {
 
   require dkim_filter::augeas
