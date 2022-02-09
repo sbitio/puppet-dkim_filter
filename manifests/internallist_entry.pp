@@ -1,3 +1,7 @@
+# dkim_filter::internallist_entry
+#
+# This defined type is responsible for creating the internal host list for the dkim-filter
+#
 define dkim_filter::internallist_entry (
   $ensure = present,
 ) {

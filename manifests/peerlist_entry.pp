@@ -1,3 +1,7 @@
+# dkim_filter::peerlist_entry
+#
+# This deifend type is responsible for creating the peerlist for the dkim-filter
+#
 define dkim_filter::peerlist_entry (
   $ensure = present,
 ) {

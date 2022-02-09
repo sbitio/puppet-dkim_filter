@@ -1,3 +1,7 @@
+# dkim_filter::mta_conf
+#
+# This defined type is responsible for configuring the mta
+#
 define dkim_filter::mta_conf (
   $mta = $title
 ) {

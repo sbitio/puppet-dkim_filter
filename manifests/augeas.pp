@@ -1,3 +1,7 @@
+# dkim_filter::augeas
+#
+# ##TODO## Add a description
+#
 class dkim_filter::augeas {
   augeas::lens {'dkim_filter_conf':
     ensure      => present,

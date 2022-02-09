@@ -1,3 +1,7 @@
+# dkim_filter::params
+#
+# This class handles the module data
+#
 class dkim_filter::params (
   $socket_type       = 'inet',
   $socket_port       = 54321,

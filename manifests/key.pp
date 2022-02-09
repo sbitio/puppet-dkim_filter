@@ -1,4 +1,7 @@
+# dkim_filter::key
+#
 # Loosely based on https://github.com/huit/puppet-dkim_filter_access/blob/master/manifests/entry.pp
+#
 define dkim_filter::key (
   $selector,
   $domain,

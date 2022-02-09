@@ -1,3 +1,7 @@
+# dkim_filter
+#
+# This class is responsible for installing and configuring the dkim-filter service
+#
 class dkim_filter (
   $ensure      = 'present',
   $autoupgrade = false
