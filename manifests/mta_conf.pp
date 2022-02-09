@@ -14,9 +14,9 @@ define dkim_filter::mta_conf (
         'inet'  => "${dkim_filter::params::socket_type}:${ip}:${dkim_filter::params::socket_port}",
       }
       postfix::config {
-        "smtpd_milters"         : value => $socket_postfix_def;
-        "non_smtpd_milters"     : value => $socket_postfix_def;
-        "milter_default_action" : value => $dkim_filter::params::mta_action;
+        'smtpd_milters'         : value => $socket_postfix_def;
+        'non_smtpd_milters'     : value => $socket_postfix_def;
+        'milter_default_action' : value => $dkim_filter::params::mta_action;
       }
     }
     default: {
