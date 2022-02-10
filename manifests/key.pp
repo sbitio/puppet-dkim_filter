@@ -1,10 +1,13 @@
+# dkim_filter::key
+#
 # Loosely based on https://github.com/huit/puppet-dkim_filter_access/blob/master/manifests/entry.pp
+#
 define dkim_filter::key (
-  $ensure   = present,
-  $subdoms  = false,
   $selector,
   $domain,
   $key,
+  $ensure   = present,
+  $subdoms  = false,
 ) {
 
   require dkim_filter::augeas
@@ -18,9 +21,9 @@ define dkim_filter::key (
   # TO-DO: remove if last absent
     file { $domain_dir:
       ensure => directory,
-      owner   => 'root',
-      group   => 'root',
-      mode    => '0600',
+      owner  => 'root',
+      group  => 'root',
+      mode   => '0600',
     }
   }
 

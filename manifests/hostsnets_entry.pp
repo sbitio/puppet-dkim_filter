@@ -1,8 +1,11 @@
+# dkim_filter::hostsnets_entry
+#
 # Loosely based on https://github.com/huit/puppet-dkim_filter_access/blob/master/manifests/entry.pp
+#
 define dkim_filter::hostsnets_entry (
-  $ensure   = present,
   $file,
-  $entry
+  $entry,
+  $ensure = present,
 ) {
 
   require dkim_filter::augeas
